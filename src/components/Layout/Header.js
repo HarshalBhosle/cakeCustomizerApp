@@ -65,10 +65,11 @@ const Header = () => {
             <div className="hamburger-line"></div>
           </div>
 
-          {/* Logo */}
+          {/* Logo and Site Title */}
           <div className="logo">
             <Link to="/" onClick={closeMenu}>
-              <h1>Cake Customizer</h1>
+              <img src="/Favicon.png" alt="Cake Customizer Logo" className="site-logo" />
+              <h1>JyoCustomize</h1>
             </Link>
           </div>
 
@@ -154,13 +155,13 @@ const Header = () => {
       {/* Inline styles for demonstration. Consider moving to a dedicated CSS file. */}
       <style>{`
         .header {
-          background-color: #f8f8f8;
+          background-color: #2c3e50; /* Changed to a dark blue-grey */
           padding: 1rem 0;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid #444; /* Slightly darker border */
           position: sticky;
           top: 0;
           z-index: 1000;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adjusted shadow for darker background */
         }
 
         .container {
@@ -175,14 +176,31 @@ const Header = () => {
           align-items: center;
         }
 
-        .logo h1 {
-          font-size: 1.8rem;
-          color: #333;
-          margin: 0;
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
         }
 
         .logo a {
           text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        /* Styling for the logo image */
+        .site-logo {
+          max-height: 40px;
+          width: auto;
+          display: block;
+        }
+
+        .logo h1 {
+          font-size: 1.8rem;
+          color: #f8f8f8; /* Changed text color to off-white for contrast */
+          margin: 0;
+          white-space: nowrap;
         }
 
         .nav-menu ul {
@@ -195,7 +213,7 @@ const Header = () => {
 
         .nav-link {
           text-decoration: none;
-          color: #555;
+          color: #f0f0f0; /* Changed text color to light grey for contrast */
           font-weight: 500;
           transition: color 0.3s ease;
           padding: 0.5rem 0;
@@ -203,13 +221,13 @@ const Header = () => {
 
         .nav-link:hover,
         .nav-link.active {
-          color: #ff6f61;
+          color: #ff6f61; /* This accent color should still stand out */
         }
 
         .user-actions {
           display: flex;
           align-items: center;
-          gap: 1rem; /* Default gap for larger screens */
+          gap: 1rem;
         }
 
         .btn-outline, .btn-primary {
@@ -223,7 +241,7 @@ const Header = () => {
 
         .btn-outline {
           border: 1px solid #ff6f61;
-          color: #ff6f61;
+          color: #ff6f61; /* Keep original color, it stands out */
           background-color: transparent;
         }
 
@@ -253,14 +271,14 @@ const Header = () => {
         .user-name {
           cursor: pointer;
           font-weight: bold;
-          color: #333;
+          color: #f0f0f0; /* Changed text color to light grey for contrast */
         }
 
         .dropdown-menu {
           display: none;
           position: absolute;
-          background-color: #fff;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          background-color: #3e5060; /* Darker background for dropdown */
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Adjusted shadow for darker background */
           padding: 10px;
           top: 100%;
           right: 0;
@@ -281,18 +299,18 @@ const Header = () => {
           border: none;
           cursor: pointer;
           text-decoration: none;
-          color: #333;
+          color: #f0f0f0; /* Changed text color to light grey for contrast */
           width: 100%;
           border-radius: 5px;
         }
 
         .dropdown-menu a:hover,
         .dropdown-menu button:hover {
-          background-color: #f0f0f0;
+          background-color: #4a5d70; /* Lighter hover background for dropdown */
         }
 
         .btn-logout {
-          color: red;
+          color: #ff6f61; /* Accent color for logout, stands out */
           font-weight: bold;
         }
 
@@ -310,7 +328,7 @@ const Header = () => {
         .hamburger-line {
           width: 25px;
           height: 3px;
-          background-color: #333;
+          background-color: #f0f0f0; /* Changed hamburger lines to light grey/white */
           border-radius: 2px;
           transition: all 0.3s ease;
         }
@@ -350,7 +368,7 @@ const Header = () => {
             left: -250px;
             width: 220px;
             height: 100%;
-            background-color: #fff;
+            background-color: #3e5060; /* Darker background for mobile menu itself */
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             padding-top: 60px;
             flex-direction: column;
@@ -373,7 +391,8 @@ const Header = () => {
           .nav-menu .nav-link {
             padding: 10px 15px;
             display: block;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #556a7c; /* Lighter border for contrast */
+            color: #f0f0f0; /* Ensure mobile links are visible */
           }
 
           .mobile-menu-toggle {
@@ -386,10 +405,8 @@ const Header = () => {
 
           .user-actions {
             margin-left: auto;
-            /* Allow buttons to wrap to next line if needed */
             flex-wrap: wrap;
-            /* Adjust gap for buttons on mobile */
-            gap: 0.5rem; /* Reduced gap */
+            gap: 0.5rem;
           }
 
           .overlay {
@@ -406,23 +423,34 @@ const Header = () => {
             margin-right: auto;
           }
 
+          .logo a {
+            flex-direction: row;
+            gap: 5px;
+          }
+          .site-logo {
+            max-height: 35px;
+          }
+          .logo h1 {
+            font-size: 1.5rem;
+            color: #f8f8f8; /* Ensure mobile title is visible */
+          }
+
           .user-actions {
             order: 3;
           }
 
-          /* New breakpoint for very small mobile screens to stack buttons */
           @media (max-width: 480px) {
             .user-actions {
-              flex-direction: column; /* Stack buttons vertically */
-              align-items: stretch; /* Make them full width */
-              gap: 0.8rem; /* Space between stacked buttons */
+              flex-direction: column;
+              align-items: stretch;
+              gap: 0.8rem;
             }
 
             .user-actions .btn-outline,
             .user-actions .btn-primary {
-              width: 100%; /* Make buttons take full width */
-              text-align: center; /* Center text in full-width buttons */
-              margin: 0; /* Remove any lingering margins */
+              width: 100%;
+              text-align: center;
+              margin: 0;
             }
           }
         }
