@@ -68,7 +68,7 @@ const Header = () => {
           {/* Logo and Site Title */}
           <div className="logo">
             <Link to="/" onClick={closeMenu}>
-              <img src="/Favicon.png" alt="Cake Customizer Logo" className="site-logo" />
+            <img src="/Favicon.png" alt="Cake Customizer Logo" className="site-logo bounce-logo" />
               <h1>JyoCustomize</h1>
             </Link>
           </div>

@@ -1670,3 +1670,44 @@ button:disabled {
   .cake-builder-container {
     grid-template-columns: 1fr;
   }}
+  @keyframes anim-bounce {
+  from, 20%, 53%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+
+
+@keyframes anim-fadeInDown {
+    from { opacity: 0; transform: translate3d(0, -100%, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.animated-element {
+  /* Base styles for visibility (optional) */
+  /* display: inline-block; */
+
+  /* Animation properties */
+  animation-name: anim-fadeInDown;
+  animation-duration: 2.2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+.bounce-logo {
+  animation: anim-fadeInDown 2.2s ease-out 0s 1 normal forwards;
+}
